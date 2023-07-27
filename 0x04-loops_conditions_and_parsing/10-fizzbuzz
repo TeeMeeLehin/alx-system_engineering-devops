@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script is displaying "Best School" 10 times
+# This script is implementing fizzbuzz
 
 # Function to check if a number is divisible by another number
 is_divisible() {

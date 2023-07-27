@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# This script is displaying "Best School" 10 times
+# This script is listing content of a file directory
 
 for file in *; do
     echo "$file" | cut -d'-' -f2-
