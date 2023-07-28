@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script terminates the "to infinity and beyond" process in task 4
+
+pkill -f 7-highlander
