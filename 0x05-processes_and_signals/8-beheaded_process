@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# This script kills the seemingly invincible "to infinity and beyond" process in task 7
+
+kill -9 "$(pgrep -f 7-highlander)"
