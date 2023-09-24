@@ -1,10 +1,8 @@
 # Create a Puppet class for managing SSH config file
 class ssh_config {
 
-  file { '~/.ssh/config':
+  file { '/etc/ssh/ssh_config':
     ensure  => present,
-    owner   => 'ubuntu',
-    group   => 'ubuntu',
     mode    => '0600',
     content => "Host *\n    IdentityFile ~/.ssh/school\n    PasswordAuthentication no\n",
   }
