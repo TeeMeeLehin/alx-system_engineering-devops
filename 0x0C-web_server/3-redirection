@@ -8,8 +8,7 @@ sudo mkdir -p /var/www/html/
 sudo chmod -R 755 /var/www
 sudo echo 'Hello World!' > /var/www/html/index.html
 
-SERVER_CONFIG=\
-"server {
+echo "server {
     listen 80 default_server;
     listen [::]:80 default_server;
    
@@ -19,7 +18,8 @@ SERVER_CONFIG=\
         return 301 https://www.youtube.com/watch?v=QH2-TGUlwu4;
    }
 }"
+ > default
 
-sudo bash -c "echo -e '$SERVER_CONFIG' > /etc/nginx/sites-enabled/default"
+sudo mv -f default /etc/nginx/sites-available/default
 
 sudo service nginx restart
