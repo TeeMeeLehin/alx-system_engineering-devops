@@ -1,18 +1,18 @@
-sh script that display information about subdomains
+#!/usr/bin/env bash
+# Bash script that displays information about subdomains
 
-domain_info () {
-    res=$(dig "$2"."$1" | grep -A1 'ANSWER SECTION:' | tr '\t' '\n' | tail -2 | tr '\n' ' ')
+domain_info() {
+    local res
+    res=$(dig "$2"."$1" | awk '/ANSWER SECTION/ {getline; print}' | tr '\t' ' ')
     echo "$2 $res" | awk '{print "The subdomain " $1 " is a " $2 " record and points to " $3}'
 }
 
-if [ "$#" == 1 ]
-then
+if [ "$#" -eq 1 ]; then
   domain_info "$1" "www"
   domain_info "$1" "lb-01"
   domain_info "$1" "web-01"
   domain_info "$1" "web-02"
-elif [ "$#" == 2 ]
-then
+elif [ "$#" -eq 2 ]; then
   domain_info "$1" "$2"
-fii
+fi
 
