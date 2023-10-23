@@ -13,7 +13,7 @@ def gather_data(user_id: int):
 
     user_data = requests.get(user_url).json()
     uid = user_data.get("id")
-    name = user_data.get("name")
+    name = user_data.get("username")
 
     todos_data = requests.get(todos_url).json()
 
