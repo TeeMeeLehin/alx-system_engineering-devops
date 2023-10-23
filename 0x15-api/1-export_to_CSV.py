@@ -20,10 +20,6 @@ def gather_data(user_id: int):
     csv_filename = f"{uid}.csv"
     with open(csv_filename, mode="w", newline="") as csv_file:
         csv_writer = csv.writer(csv_file)
-        csv_writer.writerow(["USER_ID",
-                             "USERNAME",
-                             "TASK_COMPLETED_STATUS",
-                             "TASK_TITLE"])
 
         for task in todos_data:
             title = task.get("title")
