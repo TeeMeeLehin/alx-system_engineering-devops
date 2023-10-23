@@ -18,7 +18,7 @@ def gather_data(user_id: int):
     compltd_tasks = [task for task in todos_data if task.get("completed")]
     num_compltd = len(compltd_tasks)
 
-    print(f"Employee {name} is done with tasks ({num_compltd}/{num_todos}):")
+    print(f"Employee {name} is done with tasks({num_compltd}/{num_todos}):")
 
     for task in compltd_tasks:
         print(f"\t{task.get('title')}")
