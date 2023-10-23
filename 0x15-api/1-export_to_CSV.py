@@ -19,7 +19,7 @@ def gather_data(user_id: int):
 
     csv_filename = f"{uid}.csv"
     with open(csv_filename, mode="w", newline="") as csv_file:
-        csv_writer = csv.writer(csv_file)
+        csv_writer = csv.writer(csv_file, quoting=csv.QUOTE_ALL)
 
         for task in todos_data:
             title = task.get("title")
