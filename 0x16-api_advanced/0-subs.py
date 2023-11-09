@@ -4,10 +4,10 @@ import requests
 
 
 def number_of_subscribers(subreddit):
+    """ function to get number of a subreddit subscribers """
     urlsearch = "https://www.reddit.com/r/{}/about.json".format(subreddit)
     headers = {}
     headers["User-Agent"] = "redditPirateX"
     response = requests.get(urlsearch, headers=headers)
     results = response.json().get("data")
     return results.get("subscribers")
-
