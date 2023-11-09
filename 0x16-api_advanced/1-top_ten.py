@@ -8,10 +8,12 @@ def top_ten(subreddit):
     url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
     headers = {}
     headers["User-Agent"] = "redditPirateX"
-    response = requests.get(url, headers=headers)
+    p = {"limit": 10}
+    response = requests.get(url, headers=headers, params=p,
+                            allow_redirects=False)
     if response.status_code == 404:
         print("None")
     else:
         results = (response.json().get("data").get("children"))
-        for i in range(10):
-            print(results[i].get("data").get("title"))
+        for post in results:
+            print(post.get("data").get("title"))
