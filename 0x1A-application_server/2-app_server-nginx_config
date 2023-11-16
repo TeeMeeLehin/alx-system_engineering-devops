@@ -1,0 +1,21 @@
+# configuring nginx to serve web page
+
+server {
+    # Listen on port 80
+    listen 80 default_server;
+    listen [::]:80 default_server;
+
+    # server IP address
+    server_name 100.26.249.240;
+
+    # custom HTTP response header
+    add_header X-served-By 240691-web-01;
+
+    # serving the webpage via given route
+    location /airbnb-onepage/ {
+        proxy_pass http://127.0.0.1:5000;
+    }
+
+    # error handling
+    error_page 404 = /var/www/html/404;
+}
